@@ -1,7 +1,4 @@
 #pragma once
 
-void displayMainMenu();
+bool displayMainMenu();
 void displayHelp();
-
-void readAnyKey();
-char readKey(char * availableOptions, int count);

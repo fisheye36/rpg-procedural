@@ -6,7 +6,8 @@
 int main()
 {
     std::cout << "Welcome to " << GameTitle << " game!\n\n";
-    displayMainMenu();
+    while (displayMainMenu())
+        continue;
 
     return 0;
 }

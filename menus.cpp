@@ -1,15 +1,20 @@
 #include <iostream>
-#include "menus.h"
 
-void displayMainMenu()
+#include "menus.h"
+#include "input.h"
+
+bool displayMainMenu()
 {
     std::cout << "---- MAIN MENU ----\n\n"
                  "1) Start new game\n"
                  "2) Show help & controls\n"
                  "3) Quit\n\n";
 
-    char availableOptions[] = {'1', '2', '3'};
+    const char availableOptions[] = {'1', '2', '3'};
+    // no need to evaluate sizeof availableOptions / sizeof (char)
+    // because C++ treats sizeof (char) as 1 on every implementation
     char choice = readKey(availableOptions, sizeof availableOptions);
+    bool displayAgain = true;
     switch (choice)
     {
         case '1':
@@ -20,11 +25,14 @@ void displayMainMenu()
             break;
         case '3':
             //quitGame();
+            displayAgain = false;
             break;
         default:
             //gameError();
-            break;
+            displayAgain = false;
     }
+
+    return displayAgain;
 }
 
 void displayHelp()
@@ -32,44 +40,4 @@ void displayHelp()
     std::cout << "---- HELP MENU ----\n\n"
                  "No help currently available.\n\n";
     readAnyKey();
-}
-
-void readAnyKey()
-{
-    using std::cout;
-
-    cout << "Press ENTER to continue...\n";
-    while (std::cin.get() != '\n')
-        continue;
-    cout << std::endl;
-}
-
-char readKey(char * availableOptions, int optionsCount)
-{
-    using std::cout;
-    using std::cin;
-
-    cout << "Your choice: ";
-    bool wrongChoice = true;
-    char choice;
-    while (wrongChoice)
-    {
-        cin.get(choice);
-        cin.clear();
-        while (cin.get() != '\n')
-            continue;
-
-        for (int i = 0; i < optionsCount; i++)
-            if (choice == availableOptions[i])
-            {
-                wrongChoice = false;
-                break;
-            }
-
-        if (wrongChoice)
-            cout << "Try again: ";
-    }
-    cout << std::endl;
-
-    return choice;
 }
