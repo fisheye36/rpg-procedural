@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cctype>
+
 #include "input.h"
 
 void readAnyKey()
@@ -49,7 +51,7 @@ char readChar()
         continue;
     flushInput();
 
-    return ch;
+    return tolower(ch);
 }
 
 void flushInput()
