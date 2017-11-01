@@ -44,6 +44,23 @@ char readKey(const char * availableOptions, int optionsCount)
     return choice;
 }
 
+int readNum(int min, int max)
+{
+    using std::cout;
+
+    cout << "Your choice: ";
+    int choice;
+    while (!(std::cin >> choice) || choice < min || choice > max)
+    {
+        flushInput();
+        cout << "\aTry again (from " << min << " to " << max << "): ";
+    }
+    flushInput();
+    cout << std::endl;
+
+    return choice;
+}
+
 char readChar()
 {
     char ch;
