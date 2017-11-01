@@ -5,9 +5,12 @@
 
 int main()
 {
-    std::cout << "Welcome to " << GameTitle << " game!\n\n";
+    using std::cout;
+
+    cout << "Welcome to " << GameTitle << " game!\n\n";
     while (displayMainMenu())
         continue;
+    cout << "Goodbye!\n";
 
     return 0;
 }

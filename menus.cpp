@@ -24,8 +24,7 @@ bool displayMainMenu()
             displayHelp();
             break;
         case '3':
-            //quitGame();
-            displayAgain = false;
+            displayAgain = !quitGame();
             break;
         default:
             //gameError();
@@ -40,4 +39,14 @@ void displayHelp()
     std::cout << "---- HELP MENU ----\n\n"
                  "No help currently available.\n\n";
     readAnyKey();
+}
+
+bool quitGame()
+{
+    std::cout << "Are you sure you want to quit? (y/n)\n";
+
+    const char availableOptions[] = {'y', 'n'};
+    char choice = readKey(availableOptions, sizeof availableOptions);
+
+    return choice == 'y';
 }

@@ -2,3 +2,4 @@
 
 bool displayMainMenu();
 void displayHelp();
+bool quitGame();
