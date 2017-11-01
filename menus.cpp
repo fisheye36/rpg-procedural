@@ -18,7 +18,7 @@ bool displayMainMenu()
     switch (choice)
     {
         case '1':
-            //newGame();
+            newGame();
             break;
         case '2':
             displayHelp();
@@ -27,11 +27,24 @@ bool displayMainMenu()
             displayAgain = !quitGame();
             break;
         default:
-            //gameError();
+            gameError();
             displayAgain = false;
     }
 
     return displayAgain;
+}
+
+void newGame()
+{
+    std::cout << "It is advised to read help before starting.\n"
+                 "Do you want to show the help menu? (y/n)\n";
+
+    const char availableOptions[] = {'y', 'n'};
+    char choice = readKey(availableOptions, sizeof availableOptions);
+    if (choice == 'y')
+        displayHelp();
+    // else
+        // startGame();
 }
 
 void displayHelp()
@@ -49,4 +62,9 @@ bool quitGame()
     char choice = readKey(availableOptions, sizeof availableOptions);
 
     return choice == 'y';
+}
+
+void gameError()
+{
+    std::cout << "\aAn error has occurred!\n\n";
 }
