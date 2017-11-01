@@ -2,6 +2,7 @@
 
 #include "menus.h"
 #include "input.h"
+#include "game.h"
 
 bool displayMainMenu()
 {
@@ -43,8 +44,8 @@ void newGame()
     char choice = readKey(availableOptions, sizeof availableOptions);
     if (choice == 'y')
         displayHelp();
-    // else
-        // startGame();
+    else
+        startGame();
 }
 
 void displayHelp()
