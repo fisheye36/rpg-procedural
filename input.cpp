@@ -54,6 +54,16 @@ char readChar()
     return tolower(ch);
 }
 
+std::string readString()
+{
+    std::string str;
+    do
+        std::getline(std::cin, str);
+    while (str.empty());
+
+    return str;
+}
+
 void flushInput()
 {
     using std::cin;
