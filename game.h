@@ -9,7 +9,9 @@ typedef int skill;
 typedef skill * charSkills;
 
 void startGame();
+
 charSkills createCharacter(bool player = false);
 charSkills createCharacter(std::string & playerName);
+void deleteCharacters();
 
 std::string getPlayerName();

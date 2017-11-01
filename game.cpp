@@ -12,6 +12,7 @@ void startGame()
 {
     std::string playerName;
     charSkills player = createCharacter(playerName);
+    deleteCharacters();
 }
 
 charSkills createCharacter(bool player)
@@ -32,6 +33,17 @@ charSkills createCharacter(std::string & playerName)
 {
     playerName = getPlayerName();
     return createCharacter(true);
+}
+
+void deleteCharacters()
+{
+    charSkills toBeDeleted;
+    while (!g_characters.empty())
+    {
+        toBeDeleted = g_characters.back();
+        g_characters.pop_back();
+        delete[] toBeDeleted;
+    }
 }
 
 std::string getPlayerName()
