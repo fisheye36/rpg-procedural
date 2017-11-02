@@ -2,6 +2,9 @@
 
 #include <string>
 
+#define STARTING_PTS_PLAYER 20
+#define STARTING_PTS_MONSTER 15
+
 #define SKILLS_COUNT 5
 #define ID 0
 #define NA 1
@@ -18,7 +21,10 @@ charSkills createCharacter(std::string & playerName);
 void deleteCharacters();
 
 void createPlayer(charSkills player);
+void createMonster(charSkills monster);
+
 void displaySkills(const charSkills character);
-bool changeSkill(charSkills character, int & availableSkillPoints);
+bool assignSkill(charSkills character, int & availableSkillPoints);
+void modifySkill(skill & skilltToModify, int & availableSkillPoints);
 
 std::string getPlayerName();

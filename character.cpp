@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 
 #include "character.h"
 #include "input.h"
@@ -18,8 +20,8 @@ charSkills createCharacter(bool player)
 
     if (player)
         createPlayer(newCharacter);
-    // else
-        // createMonster(newCharacter);
+    else
+        createMonster(newCharacter);
 
     return newCharacter;
 }
@@ -44,12 +46,28 @@ void deleteCharacters()
 void createPlayer(charSkills player)
 {
     bool finished = false;
-    int availableSkillPoints = 20;
+    int availableSkillPoints = STARTING_PTS_PLAYER;
     do
     {
         displaySkills(player);
-        finished = changeSkill(player, availableSkillPoints);
+        finished = assignSkill(player, availableSkillPoints);
     } while (!finished);
+}
+
+void createMonster(charSkills monster)
+{
+    monster[HP] = monster[ID];
+    int availableSkillPoints = STARTING_PTS_MONSTER;
+    srand(time(NULL));
+    do
+    {
+        for (int i = 1; i <= SKILLS_COUNT; i++)
+        {
+            if (!availableSkillPoints)
+                break;
+            modifySkill(monster[i], availableSkillPoints);
+        }
+    } while (availableSkillPoints);
 }
 
 void displaySkills(const charSkills character)
@@ -63,7 +81,7 @@ void displaySkills(const charSkills character)
               << "5) HP (Health Points): " << character[HP] << endl << endl;
 }
 
-bool changeSkill(charSkills character, int & availableSkillPoints)
+bool assignSkill(charSkills character, int & availableSkillPoints)
 {
     using std::cout;
 
@@ -91,6 +109,17 @@ bool changeSkill(charSkills character, int & availableSkillPoints)
     }
 
     return finished;
+}
+
+void modifySkill(skill & skillToModify, int & availableSkillPoints)
+{
+    const int MaxSkillModification = 3;
+    int amount = rand() % (MaxSkillModification + 1);
+    if (amount > availableSkillPoints)
+        amount = availableSkillPoints;
+
+    skillToModify += amount;
+    availableSkillPoints -= amount;
 }
 
 std::string getPlayerName()
