@@ -6,6 +6,7 @@
 
 #include "character.h"
 #include "input.h"
+#include "constants.h"
 
 // holds characters' stats
 std::vector<charSkills> g_characters;
@@ -57,7 +58,7 @@ void createPlayer(charSkills player)
 void createMonster(charSkills monster)
 {
     monster[HP] = monster[ID];
-    int availableSkillPoints = STARTING_PTS_MONSTER;
+    int availableSkillPoints = STARTING_PTS_MONSTER + monster[ID] - 1;
     srand(time(NULL));
     do
     {
