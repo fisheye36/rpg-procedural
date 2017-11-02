@@ -3,6 +3,7 @@
 #define STARTING_PTS_PLAYER 20
 #define STARTING_PTS_MONSTER 15
 #define PTS_PER_LVL 3
+#define DMG_MODIFIER 0.5
 
 #define SKILLS_COUNT 5
 #define ID 0

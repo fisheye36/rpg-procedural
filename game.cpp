@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 #include "game.h"
 #include "character.h"
+#include "fight.h"
+#include "constants.h"
 
 void startGame()
 {
@@ -10,12 +13,22 @@ void startGame()
 
     std::string playerName;
     charSkills player = createCharacter(playerName);
-    charSkills monster = createCharacter();
+    charSkills monster = NULL;
 
-    cout << playerName << ":\n";
-    displaySkills(player);
-    cout << "Monster #" << monster[ID] << ":\n";
-    displaySkills(monster);
+    while (player[HP] > 0)
+    {
+        monster = createCharacter();
+        cout << "-- You VERSUS Monster #" << monster[ID] << " --\n\n";
+        srand(time(NULL));
+        fight(player, monster);
 
+        if (player[HP] > 0)
+        {
+            cout << "You slaughtered Monster #" << monster[ID] << "!\n"
+                    "You leveled up! You gained " << PTS_PER_LVL << " new Skill Points.\n\n";
+            buildPlayer(player, PTS_PER_LVL);
+        }
+    }
+    //gameOver();
     deleteCharacters();
 }
