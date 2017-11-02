@@ -20,9 +20,9 @@ charSkills createCharacter(bool player)
     g_characters.push_back(newCharacter);
 
     if (player)
-        createPlayer(newCharacter);
+        buildPlayer(newCharacter, STARTING_PTS_PLAYER);
     else
-        createMonster(newCharacter);
+        buildMonster(newCharacter);
 
     return newCharacter;
 }
@@ -44,10 +44,9 @@ void deleteCharacters()
     }
 }
 
-void createPlayer(charSkills player)
+void buildPlayer(charSkills player, int availableSkillPoints)
 {
     bool finished = false;
-    int availableSkillPoints = STARTING_PTS_PLAYER;
     do
     {
         displaySkills(player);
@@ -55,7 +54,7 @@ void createPlayer(charSkills player)
     } while (!finished);
 }
 
-void createMonster(charSkills monster)
+void buildMonster(charSkills monster)
 {
     monster[HP] = monster[ID];
     int availableSkillPoints = STARTING_PTS_MONSTER + monster[ID] - 1;
@@ -87,7 +86,8 @@ bool assignSkill(charSkills character, int & availableSkillPoints)
     using std::cout;
 
     bool finished = false;
-    if (!availableSkillPoints && character[HP] > 0)
+    if (!availableSkillPoints && character[HP] > 0
+                              && (character[NA] > 0 || character[MA] > 0))
     {
         cout << "All Skill Points have been used.\n"
                 "Do you want to finish your build? (y/n)\n";
