@@ -9,7 +9,7 @@
 
 void fight(charSkills player, charSkills monster)
 {
-    bool playerTurn = true;
+    bool playerTurn = trueOrFalse();
     charAttack attack = NULL;
     bool charDead;
     do
@@ -47,7 +47,7 @@ bool playerAttack(charSkills player, charSkills monster)
         case 'q':
             return hurtCharacter(player[HP], player[HP]);
     }
-    displayDamage(player, monster, damage);
+    displayDmg(player, monster, damage);
 
     return hurtCharacter(monster[HP], damage);
 }
@@ -56,7 +56,7 @@ bool monsterAttack(charSkills player, charSkills monster)
 {
     using std::cout;
 
-    bool normalAttack = chooseAttackType();
+    bool normalAttack = trueOrFalse();
     int damage;
     if (normalAttack)
     {
@@ -68,12 +68,12 @@ bool monsterAttack(charSkills player, charSkills monster)
         cout << "Monster is doing Magic Attack...\n";
         damage = calculateDmg(monster[MA], player[MD]);
     }
-    displayDamage(monster, player, damage);
+    displayDmg(monster, player, damage);
 
     return hurtCharacter(player[HP], damage);
 }
 
-bool chooseAttackType()
+bool trueOrFalse()
 {
     return rand() % 2 == 0;
 }
@@ -95,7 +95,7 @@ int modifier(skill attack)
     return attack * mod;
 }
 
-void displayDamage(const charSkills attacker, const charSkills defender, int dmg)
+void displayDmg(const charSkills attacker, const charSkills defender, int dmg)
 {
     using std::cout;
     using std::string;
