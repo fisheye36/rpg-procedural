@@ -1,3 +1,10 @@
+/**
+ * A simple console rpg game intentionally written in procedural C++
+ * (no user defined classes or even structs).
+ * @author Kamil Warchol
+ * https://github.com/fisheye36/rpg-procedural
+ */
+
 #include <iostream>
 #include "menus.h"
 
