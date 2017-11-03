@@ -102,8 +102,8 @@ void displayDmg(const charSkills attacker, const charSkills defender, int dmg)
     using std::cout;
     using std::string;
 
-    string attackerName = attacker[ID] == 0 ? "Player" : "Monster";
-    string defenderName = defender[ID] == 0 ? "Player" : "Monster";
+    string attackerName = (attacker[ID] == 0) ? "Player" : "Monster";
+    string defenderName = (defender[ID] == 0) ? "Player" : "Monster";
     if (dmg)
         cout << attackerName << " did " << dmg << " damage to " << defenderName << ".\n";
     else
