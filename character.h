@@ -28,13 +28,11 @@ charSkills createCharacter(std::string & playerName);
  */
 void deleteCharacters();
 
-
-
 /**
  * Lets the user build a player character. Displays current stats and lets
  * the user assign Skill Points to a particular skill until available Skill Points
  * are depleted.
- * @param player a pointer to player stats array (aka int array)
+ * @param player a pointer to a player stats array (aka int array)
  * @param availableSkillPoints an integer holding available Skill Points
  */
 void buildPlayer(charSkills player, int availableSkillPoints);
@@ -45,8 +43,6 @@ void buildPlayer(charSkills player, int availableSkillPoints);
  * @param monster a pointer to a monster stats array (aka int array)
  */
 void buildMonster(charSkills monster);
-
-
 
 /**
  * Displays character skills.
@@ -70,8 +66,6 @@ bool assignSkill(charSkills player, int & availableSkillPoints);
  * @param availableSkillPoints a reference to an integer holding available Skill Points
  */
 void modifySkill(skill & skilltToModify, int & availableSkillPoints);
-
-
 
 /**
  * Prompts the user to enter a player name. Returns an std::string object.

@@ -31,6 +31,7 @@ bool playerAttack(charSkills player, charSkills monster)
                  "M) Magic Attack (" << player[MA] << ")\n"
                  "Q) Suicide and quit\n\n";
 
+    // we can use both letters and numbers, which is really handy
     const char availableOptions[] = {'n', 'm', 'q', '1', '2'};
     char choice = readKey(availableOptions, sizeof availableOptions);
     int damage;
@@ -92,6 +93,7 @@ int modifier(skill attack)
     double mod = double(rand()) / RAND_MAX;
     mod = mod * 2 * DMG_MODIFIER - DMG_MODIFIER;
 
+    // no rounding - modifier value will be truncated to int
     return attack * mod;
 }
 

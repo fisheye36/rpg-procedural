@@ -11,7 +11,7 @@ void readAnyKey();
  * Prompts the user to choose only on of the available options.
  * Clears input stream afterwards and returns user's choice as a char variable.
  * @param availableOptions a pointer to a char array containing available menu options
- * @optionsCount an integer containing the size of the char array
+ * @param optionsCount an integer containing the size of the char array
  * @return user's choice (equal to one of the elements of the array pointed by
  *         availableOptions)
  */
@@ -25,8 +25,6 @@ char readKey(const char * availableOptions, int optionsCount);
  * @return an integer number entered by the user (between min and max, both inclusive)
  */
 int readNum(int min, int max);
-
-
 
 /**
  * Reads a single character from standard input (excluding newline). Clears input stream

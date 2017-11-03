@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+
 #include <cstdlib>
+#include <ctime>
 
 #include "game.h"
 #include "character.h"
@@ -9,6 +11,7 @@
 #include "input.h"
 #include "constants.h"
 
+// holds characters stats, defined in characters.cpp
 extern std::vector<charSkills> g_characters;
 
 void startGame()
@@ -22,7 +25,9 @@ void startGame()
     while (player[HP] > 0)
     {
         monster = createCharacter();
-        cout << "-- You VERSUS Monster #" << monster[ID] << " --\n\n";
+        cout << "-- " << playerName << " VERSUS Monster #" << monster[ID] << " --\n\n";
+        // prepare seed for random number generator
+        // which is used in several functions in fight.cpp
         srand(time(NULL));
         fight(player, monster);
 

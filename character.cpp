@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+
 #include <cstdlib>
 #include <ctime>
 
@@ -8,7 +9,7 @@
 #include "input.h"
 #include "constants.h"
 
-// holds characters' stats
+// holds characters stats
 std::vector<charSkills> g_characters;
 
 charSkills createCharacter(bool player)
@@ -81,13 +82,14 @@ void displaySkills(const charSkills character)
               << "5) HP (Health Points): " << character[HP] << endl << endl;
 }
 
-bool assignSkill(charSkills character, int & availableSkillPoints)
+bool assignSkill(charSkills player, int & availableSkillPoints)
 {
     using std::cout;
 
     bool finished = false;
-    if (!availableSkillPoints && character[HP] > 0
-                              && (character[NA] > 0 || character[MA] > 0))
+    // no more Skill Points and we have some HP and are able to attack
+    if (!availableSkillPoints && player[HP] > 0
+                              && (player[NA] > 0 || player[MA] > 0))
     {
         cout << "All Skill Points have been used.\n"
                 "Do you want to finish your build? (y/n)\n";
@@ -103,9 +105,9 @@ bool assignSkill(charSkills character, int & availableSkillPoints)
              << "First, choose a skill to modify.\n";
         int chosenSkill = readNum(1, SKILLS_COUNT);
         cout << "Next, enter the amount (positive or negative).\n";
-        int amount = readNum(-character[chosenSkill], availableSkillPoints);
+        int amount = readNum(-player[chosenSkill], availableSkillPoints);
 
-        character[chosenSkill] += amount;
+        player[chosenSkill] += amount;
         availableSkillPoints -= amount;
     }
 
