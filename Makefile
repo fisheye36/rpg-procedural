@@ -3,9 +3,9 @@ CXXFLAGS = -Wall -Wextra -pedantic -MMD -MP
 CXXFLAGS += -std=c++03
 LDFLAGS = -lm
 
-ZIP = rpg-fisheye.tgz
+ZIP = rpg-procedural.tgz
 
-APP = rpg-fisheye
+APP = rpg-procedural.out
 SRC = $(wildcard *.cpp)
 HDR = $(wildcard *.h)
 DEP = $(SRC:.cpp=.d)
@@ -37,7 +37,7 @@ $(APP): $(OBJ)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 zip: $(SRC) $(HDR)
-	tar czf $(ZIP) $^ Makefile 
+	tar czf $(ZIP) $^ Makefile
 
 run: $(APP)
 	@./$(APP)
