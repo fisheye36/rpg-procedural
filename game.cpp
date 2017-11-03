@@ -47,16 +47,22 @@ void gameOver(charSkills player, std::string playerName)
     using std::cout;
     using std::endl;
 
+    const int charAmount = g_characters.size();
     cout << playerName << ", you are DEAD...\n"
-            "Before you died, you have managed to kill " << g_characters.size() - 2
-         << " monsters.\nBelow you can see your final stats:\n\n"
+            "You were killed by Monster #" << charAmount - 1 << ":\n\n";
+    displaySkills(g_characters[charAmount - 1]);
+    readAnyKey();
+
+    const std::string monster = (charAmount - 2 == 1) ? "monster" : "monsters";
+    cout << "Before you died, you have managed to kill " << charAmount - 2
+         << " " << monster << ".\nBelow you can see your final stats:\n\n"
          << playerName << endl;
     displaySkills(player);
 
-    if (g_characters.size() > 2)
+    if (charAmount > 2)
     {
         cout << "And here is a complete list of every monster you have slaughtered:\n\n";
-        for (unsigned i = 1u; i < g_characters.size() - 1u; i++)
+        for (int i = 1; i < charAmount - 1; i++)
         {
             readAnyKey();
             cout << "Monster #" << g_characters[i][ID] << endl;
