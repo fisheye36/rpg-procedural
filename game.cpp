@@ -33,8 +33,11 @@ void startGame()
 
         if (player[HP] > 0)
         {
-            cout << "You slaughtered Monster #" << monster[ID] << "!\n"
-                    "You leveled up! You gained " << PTS_PER_LVL << " new Skill Points.\n\n";
+            cout << "You slaughtered Monster #" << monster[ID] << "!\n";
+            displaySkills(monster);
+            readAnyKey();
+            cout << "You leveled up! You gained " << PTS_PER_LVL
+                 << " new Skill Points.\n\n";
             buildPlayer(player, PTS_PER_LVL);
         }
     }
