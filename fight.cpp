@@ -14,6 +14,7 @@ void fight(charSkills player, charSkills monster)
     bool charDead;
     do
     {
+        readAnyKey();
         if (playerTurn)
             attack = playerAttack;
         else
