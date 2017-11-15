@@ -50,7 +50,7 @@ void buildPlayer(charSkills player, int availableSkillPoints)
     bool finished = false;
     do
     {
-        displaySkills(player);
+        displaySkills(player, false);
         finished = assignSkill(player, availableSkillPoints);
     } while (!finished);
 }
@@ -69,9 +69,12 @@ void buildMonster(charSkills monster)
             modifySkill(monster[i], availableSkillPoints);
         }
     } while (availableSkillPoints);
+
+    // update MAX_HP as well just after building monster
+    monster[MAX_HP] = monster[HP];
 }
 
-void displaySkills(const charSkills character)
+void displaySkills(const charSkills character, bool maxHealth)
 {
     using std::endl;
 
@@ -79,7 +82,8 @@ void displaySkills(const charSkills character)
               << "2) ND (Normal Defense): " << character[ND] << endl
               << "3) MA (Magic Attack): " << character[MA] << endl
               << "4) MD (Magic Defense): " << character[MD] << endl
-              << "5) HP (Health Points): " << character[HP] << endl << endl;
+              << "5) HP (Health Points): "
+              << (maxHealth ? character[MAX_HP] : character[HP]) << endl << endl;
 }
 
 bool assignSkill(charSkills player, int & availableSkillPoints)
@@ -103,10 +107,13 @@ bool assignSkill(charSkills player, int & availableSkillPoints)
     {
         cout << "Available Skill Points: " << availableSkillPoints << std::endl
              << "First, choose a skill to modify.\n";
-        int chosenSkill = readNum(1, SKILLS_COUNT);
+        int chosenSkill = readNum(1, SKILLS_COUNT - 1);
         cout << "Next, enter the amount (positive or negative).\n";
         int amount = readNum(-player[chosenSkill], availableSkillPoints);
 
+        // update MAX_HP as well
+        if (chosenSkill == HP)
+            player[MAX_HP] += amount;
         player[chosenSkill] += amount;
         availableSkillPoints -= amount;
     }

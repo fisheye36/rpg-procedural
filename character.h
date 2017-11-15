@@ -48,8 +48,10 @@ void buildMonster(charSkills monster);
  * Displays character skills.
  * @param character a pointer to a character stats array (aka int array) to be
  *        displayed
+ * @param maxHealth a boolean value telling the function whether to print HP
+ *        as a maximum HP the character ever had or current HP; defaults to true
  */
-void displaySkills(const charSkills character);
+void displaySkills(const charSkills character, bool maxHealth = true);
 
 /**
  * Lets the user choose a particular skill to modify and then the amount.
