@@ -1,11 +1,11 @@
 CXX = g++
-CXXFLAGS = -Wall -Wextra -pedantic -MMD -MP
+CXXFLAGS = -Wall -Wextra -pedantic -MMD -MP -g
 CXXFLAGS += -std=c++03
-LDFLAGS = -lm
-
-ZIP = rpg-procedural.tgz
+LDFLAGS =
 
 APP = rpg-procedural.out
+ZIP = $(APP:.out=.tgz)
+
 SRC = $(wildcard *.cpp)
 HDR = $(wildcard *.h)
 DEP = $(SRC:.cpp=.d)
@@ -20,6 +20,7 @@ help:
 	@echo "'make zip' to compress source and header files into $(ZIP)"
 	@echo "'make run' to start application (building it if necessary)"
 	@echo "'make crun' to clear screen and start application (building it if necessary)"
+	@echo "'make val' to debug application with valgrind (building it if necessary)"
 	@echo "'make clean' to delete everything except source and header files"
 	@echo "'make vars' to print file-related variables"
 
@@ -46,6 +47,9 @@ crun: $(APP)
 	@clear
 	@./$(APP)
 
+val: $(APP)
+	@valgrind ./$(APP)
+
 clean:
 	rm -rf $(APP) $(OBJ) $(DEP) $(ZIP)
 
@@ -55,6 +59,6 @@ vars:
 	@echo "DEP = $(DEP)"
 	@echo "OBJ = $(OBJ)"
 
-.PHONY: all help rebuild zip run crun clean vars
+.PHONY: all help rebuild zip run crun val clean vars
 
 -include $(DEP)
