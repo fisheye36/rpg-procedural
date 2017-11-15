@@ -56,10 +56,9 @@ void gameOver(charSkills player, std::string playerName)
     displaySkills(g_characters[charAmount - 1]);
     readAnyKey();
 
-    const std::string monster = (charAmount - 2 == 1) ? "monster" : "monsters";
     cout << "Before you died, you have managed to kill " << charAmount - 2
-         << " " << monster << ".\nBelow you can see your final stats:\n\n"
-         << playerName << endl;
+         << ((charAmount - 2 == 1) ? " monster" : " monsters")
+         << ".\nBelow you can see your final stats:\n\n" << playerName << endl;
     displaySkills(player);
 
     if (charAmount > 2)
