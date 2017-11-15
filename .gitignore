@@ -34,3 +34,6 @@
 # vim-related files
 .ycm_extra_conf.py*
 *.swp
+
+# sublime-related files
+*.sublime-*
