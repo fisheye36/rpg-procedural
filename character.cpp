@@ -58,7 +58,8 @@ void buildPlayer(charSkills player, int availableSkillPoints)
 void buildMonster(charSkills monster)
 {
     monster[HP] = monster[ID];
-    int availableSkillPoints = STARTING_PTS_MONSTER + monster[ID] - 1;
+    int availableSkillPoints = STARTING_PTS_MONSTER
+                             + (monster[ID] - 1) * MONSTER_LVL_MODIFIER;
     srand(time(NULL));
     do
     {

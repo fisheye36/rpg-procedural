@@ -64,7 +64,8 @@ void displayHelp()
                  "Monsters have randomly generated skills. First monster starts with\n"
                  "1 HP and then it has " << STARTING_PTS_MONSTER << " Skill Points"
                  " available.\nNext monster starts with 2 HP and has "
-              << STARTING_PTS_MONSTER + 1 << " Skill Points available, and so on.\n\n"
+              << STARTING_PTS_MONSTER + MONSTER_LVL_MODIFIER
+              << " Skill Points available, and so on.\n\n"
                  "-- FIGHT --\n\n"
                  "Fighting is divided into turns. The first turn is randomly assigned.\n"
                  "In your turn you can either make normal or magic attack.\n"
@@ -79,7 +80,7 @@ void displayHelp()
                  "-- GAME PROGRESSION --\n\n"
                  "After a successfull kill you get " << PTS_PER_LVL << " additional"
                  " Skill Points for you to use.\nUse them to boost your skills or heal up!\n"
-                 "And remember that next the monster will be a tougher one.\n\n"
+                 "And remember that the next monster will be a tougher one.\n\n"
                  "-- GAME END --\n\n"
                  "The game is finished when your character dies.\n"
                  "After you are dead you will see your final stats\n"
