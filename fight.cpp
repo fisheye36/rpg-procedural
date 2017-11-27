@@ -34,7 +34,7 @@ bool playerAttack(charSkills player, charSkills monster)
 
     // we can use both letters and numbers, which is really handy
     const char availableOptions[] = {'n', 'm', 'q', '1', '2'};
-    char choice = readKey(availableOptions, sizeof availableOptions);
+    const char choice = readKey(availableOptions, sizeof availableOptions);
     int damage;
     switch (choice)
     {
@@ -58,7 +58,7 @@ bool monsterAttack(charSkills player, charSkills monster)
 {
     using std::cout;
 
-    bool normalAttack = trueOrFalse();
+    const bool normalAttack = trueOrFalse();
     int damage;
     if (normalAttack)
     {
@@ -103,8 +103,8 @@ void displayDmg(const charSkills attacker, const charSkills defender, int dmg)
     using std::cout;
     using std::string;
 
-    string attackerName = (attacker[ID] == 0) ? "Player" : "Monster";
-    string defenderName = (defender[ID] == 0) ? "Player" : "Monster";
+    const string attackerName = (attacker[ID] == 0) ? "Player" : "Monster";
+    const string defenderName = (defender[ID] == 0) ? "Player" : "Monster";
     if (dmg)
         cout << attackerName << " did " << dmg << " damage to " << defenderName << ".\n";
     else

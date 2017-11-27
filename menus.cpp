@@ -14,7 +14,7 @@ bool displayMainMenu()
     const char availableOptions[] = {'1', '2', '3'};
     // no need to evaluate sizeof availableOptions / sizeof (char)
     // because C++ treats sizeof (char) as 1 on every implementation
-    char choice = readKey(availableOptions, sizeof availableOptions);
+    const char choice = readKey(availableOptions, sizeof availableOptions);
     bool displayAgain = true;
     switch (choice)
     {
@@ -38,7 +38,7 @@ void newGame()
                  "Do you want to show the help menu? (y/n)\n";
 
     const char availableOptions[] = {'y', 'n'};
-    char choice = readKey(availableOptions, sizeof availableOptions);
+    const char choice = readKey(availableOptions, sizeof availableOptions);
     if (choice == 'y')
         displayHelp();
     else
@@ -47,7 +47,7 @@ void newGame()
 
 void displayHelp()
 {
-    const int ExampleSkill = 10;
+    const int exampleSkill = 10;
     std::cout << "---- HELP MENU ----\n\n"
                  "-- CHARACTER CREATION --\n\n"
                  "Characters have 5 basic skills:\n\n"
@@ -71,9 +71,9 @@ void displayHelp()
                  "Attack Damage equals your AS (Attack Skill) + Modifier.\n"
                  "The Modifier is a random number between -(AS * " << DMG_MODIFIER
               << ") and (AS * " << DMG_MODIFIER << ").\n"
-                 "For example, if you have " << ExampleSkill << " AS, your attack"
-                 " does from " << ExampleSkill - ExampleSkill * DMG_MODIFIER << " to "
-              << ExampleSkill + ExampleSkill * DMG_MODIFIER << " AD.\n"
+                 "For example, if you have " << exampleSkill << " AS, your attack"
+                 " does from " << exampleSkill - exampleSkill * DMG_MODIFIER << " to "
+              << exampleSkill + exampleSkill * DMG_MODIFIER << " AD.\n"
                  "Finally, effective damage equals AD - OD (Opponent Defense).\n"
                  "If AD < OD then the attack deals no damage at all (i.e. is a miss).\n\n"
                  "-- GAME PROGRESSION --\n\n"
@@ -94,7 +94,7 @@ bool quitGame()
     std::cout << "Are you sure you want to quit? (y/n)\n";
 
     const char availableOptions[] = {'y', 'n'};
-    char choice = readKey(availableOptions, sizeof availableOptions);
+    const char choice = readKey(availableOptions, sizeof availableOptions);
 
     return choice == 'y';
 }

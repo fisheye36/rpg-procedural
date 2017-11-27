@@ -5,9 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
 #include <cstdlib>
-#include <ctime>
 
 // holds characters stats
 std::vector<charSkills> g_characters;
@@ -60,7 +58,6 @@ void buildMonster(charSkills monster)
     monster[HP] = monster[ID];
     int availableSkillPoints = STARTING_PTS_MONSTER
                              + (monster[ID] - 1) * MONSTER_LVL_MODIFIER;
-    srand(time(NULL));
     do
     {
         for (int i = 1; i <= SKILLS_COUNT; i++)
@@ -100,7 +97,7 @@ bool assignSkill(charSkills player, int & availableSkillPoints)
                 "Do you want to finish your build? (y/n)\n";
 
         const char availableOptions[] = {'y', 'n'};
-        char choice = readKey(availableOptions, sizeof availableOptions);
+        const char choice = readKey(availableOptions, sizeof availableOptions);
         finished = choice == 'y';
     }
 
@@ -108,9 +105,9 @@ bool assignSkill(charSkills player, int & availableSkillPoints)
     {
         cout << "Available Skill Points: " << availableSkillPoints << std::endl
              << "First, choose a skill to modify.\n";
-        int chosenSkill = readNum(1, SKILLS_COUNT - 1);
+        const int chosenSkill = readNum(1, SKILLS_COUNT - 1);
         cout << "Next, enter the amount (positive or negative).\n";
-        int amount = readNum(-player[chosenSkill], availableSkillPoints);
+        const int amount = readNum(-player[chosenSkill], availableSkillPoints);
 
         // update MAX_HP as well
         if (chosenSkill == HP)
@@ -124,8 +121,8 @@ bool assignSkill(charSkills player, int & availableSkillPoints)
 
 void modifySkill(skill & skillToModify, int & availableSkillPoints)
 {
-    const int MaxSkillModification = 3;
-    int amount = rand() % (MaxSkillModification + 1);
+    const int maxSkillModification = 3;
+    int amount = rand() % (maxSkillModification + 1);
     if (amount > availableSkillPoints)
         amount = availableSkillPoints;
 
@@ -138,7 +135,7 @@ std::string getPlayerName()
     using std::cout;
 
     cout << "Enter your character's name: ";
-    std::string name = readString();
+    const std::string name = readString();
     cout << std::endl;
 
     return name;
