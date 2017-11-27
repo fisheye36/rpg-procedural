@@ -26,7 +26,7 @@ bool playerAttack(charSkills player, charSkills monster);
  * @param monster a pointer to a monster stats array (aka int array)
  * @return true if a player dies, false otherwise
  */
-bool monsterAttack(charSkills player, charSkills monster);
+bool monsterAttack(charSkills player, const charSkills monster);
 
 /**
  * Calculates effective attack damage. Returns an integer value.
@@ -34,14 +34,14 @@ bool monsterAttack(charSkills player, charSkills monster);
  * @param defense a skill (aka int) for a particular defense type
  * @return an integer equal to the attack damage
  */
-int calculateDmg(skill attack, skill defense);
+int calculateDmg(const skill attack, const skill defense);
 
 /**
  * Calculates a modifier to an attack damage. Returns an integer value.
  * @param attack a skill (aka int) for a particular attack type
  * @return an integer equal to the calculated modifier
  */
-int modifier(skill attack);
+int modifier(const skill attack);
 
 /**
  * Displays how much damage an attacker did to a defender.
@@ -49,7 +49,7 @@ int modifier(skill attack);
  * @param defender a pointer to a defender stats array (aka int array) to be displayed
  * @param dmg an integer holding effective attack damage
  */
-void displayDmg(const charSkills attacker, const charSkills defender, int dmg);
+void displayDmg(const charSkills attacker, const charSkills defender, const int dmg);
 
 /**
  * Subtracts HP by the amount of effective attack damage received. Returns a boolean
@@ -58,7 +58,7 @@ void displayDmg(const charSkills attacker, const charSkills defender, int dmg);
  * @param dmg an integer holding effective attack damage
  * @return true if HP falls down to 0, false otherwise
  */
-bool hurtCharacter(skill & hp, int dmg);
+bool hurtCharacter(skill & hp, const int dmg);
 
 /**
  * Randomly generates either true or false value. Returns a boolean value.

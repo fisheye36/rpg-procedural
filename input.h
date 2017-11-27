@@ -15,7 +15,7 @@ void readAnyKey();
  * @return user's choice (equal to one of the elements of the array pointed by
  *         availableOptions)
  */
-char readKey(const char * availableOptions, int optionsCount);
+char readKey(const char * availableOptions, const int optionsCount);
 
 /**
  * Prompts the user to enter an integer number between min and max (both inclusive).
@@ -24,7 +24,7 @@ char readKey(const char * availableOptions, int optionsCount);
  * @max maximum integer number the user is allowed to enter
  * @return an integer number entered by the user (between min and max, both inclusive)
  */
-int readNum(int min, int max);
+int readNum(const int min, const int max);
 
 /**
  * Reads a single character from standard input (excluding newline). Clears input stream

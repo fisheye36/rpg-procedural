@@ -14,7 +14,7 @@ typedef skill * charSkills;
  *        or a monster; defaults to false
  * @return a pointer to the newly created character stats array (aka int array)
  */
-charSkills createCharacter(bool player = false);
+charSkills createCharacter(const bool player = false);
 
 /**
  * Reads player name and calls createCharacter(bool).
@@ -51,7 +51,7 @@ void buildMonster(charSkills monster);
  * @param maxHealth a boolean value telling the function whether to print HP
  *        as a maximum HP the character ever had or current HP; defaults to true
  */
-void displaySkills(const charSkills character, bool maxHealth = true);
+void displaySkills(const charSkills character, const bool maxHealth = true);
 
 /**
  * Lets the user choose a particular skill to modify and then the amount.

@@ -45,7 +45,7 @@ void startGame()
     deleteCharacters();
 }
 
-void gameOver(charSkills player, std::string playerName)
+void gameOver(const charSkills player, const std::string playerName)
 {
     using std::cout;
     using std::endl;

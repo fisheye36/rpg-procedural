@@ -49,7 +49,7 @@ bool playerAttack(charSkills player, charSkills monster)
     return hurtCharacter(monster[HP], damage);
 }
 
-bool monsterAttack(charSkills player, charSkills monster)
+bool monsterAttack(charSkills player, const charSkills monster)
 {
     using std::cout;
 
@@ -75,7 +75,7 @@ bool trueOrFalse()
     return rand() % 2 == 0;
 }
 
-int calculateDmg(skill attack, skill defense)
+int calculateDmg(const skill attack, const skill defense)
 {
     int damage = attack + modifier(attack) - defense;
     if (damage < 0)
@@ -84,7 +84,7 @@ int calculateDmg(skill attack, skill defense)
     return damage;
 }
 
-int modifier(skill attack)
+int modifier(const skill attack)
 {
     double mod = double(rand()) / RAND_MAX;
     mod = mod * 2 * DMG_MODIFIER - DMG_MODIFIER;
@@ -93,7 +93,7 @@ int modifier(skill attack)
     return attack * mod;
 }
 
-void displayDmg(const charSkills attacker, const charSkills defender, int dmg)
+void displayDmg(const charSkills attacker, const charSkills defender, const int dmg)
 {
     using std::cout;
     using std::string;
@@ -106,7 +106,7 @@ void displayDmg(const charSkills attacker, const charSkills defender, int dmg)
         cout << attackerName << " missed!\n";
 }
 
-bool hurtCharacter(skill & hp, int dmg)
+bool hurtCharacter(skill & hp, const int dmg)
 {
     using std::endl;
 

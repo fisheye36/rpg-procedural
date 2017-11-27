@@ -10,7 +10,7 @@
 // holds characters stats
 std::vector<charSkills> g_characters;
 
-charSkills createCharacter(bool player)
+charSkills createCharacter(const bool player)
 {
     charSkills newCharacter = new skill[SKILLS_COUNT + 1];
     newCharacter[ID] = g_characters.size();
@@ -72,7 +72,7 @@ void buildMonster(charSkills monster)
     monster[MAX_HP] = monster[HP];
 }
 
-void displaySkills(const charSkills character, bool maxHealth)
+void displaySkills(const charSkills character, const bool maxHealth)
 {
     using std::endl;
 

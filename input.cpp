@@ -18,7 +18,7 @@ void readAnyKey()
         cout << std::endl;
 }
 
-char readKey(const char * availableOptions, int optionsCount)
+char readKey(const char * availableOptions, const int optionsCount)
 {
     using std::cout;
 
@@ -43,7 +43,7 @@ char readKey(const char * availableOptions, int optionsCount)
     return choice;
 }
 
-int readNum(int min, int max)
+int readNum(const int min, const int max)
 {
     using std::cout;
 

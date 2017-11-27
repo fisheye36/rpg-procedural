@@ -14,4 +14,4 @@ void startGame();
  * @param player a pointer to a player stats array (aka int array)
  * @param playerName an std::string object containing a player name
  */
-void gameOver(charSkills player, std::string playerName);
+void gameOver(const charSkills player, const std::string playerName);
