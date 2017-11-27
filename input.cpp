@@ -1,7 +1,6 @@
+#include "input.h"
 #include <iostream>
 #include <cctype>
-
-#include "input.h"
 
 void readAnyKey()
 {

@@ -1,11 +1,11 @@
-#include <iostream>
-#include <string>
-#include <cstdlib>
-
 #include "fight.h"
 #include "character.h"
 #include "input.h"
 #include "constants.h"
+
+#include <iostream>
+#include <string>
+#include <cstdlib>
 
 void fight(charSkills player, charSkills monster)
 {

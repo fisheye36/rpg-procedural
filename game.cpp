@@ -1,15 +1,15 @@
+#include "game.h"
+#include "character.h"
+#include "fight.h"
+#include "input.h"
+#include "constants.h"
+
 #include <iostream>
 #include <string>
 #include <vector>
 
 #include <cstdlib>
 #include <ctime>
-
-#include "game.h"
-#include "character.h"
-#include "fight.h"
-#include "input.h"
-#include "constants.h"
 
 // holds characters stats, defined in characters.cpp
 extern std::vector<charSkills> g_characters;

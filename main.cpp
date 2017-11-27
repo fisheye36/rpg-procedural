@@ -5,8 +5,8 @@
  * https://github.com/fisheye36/rpg-procedural
  */
 
-#include <iostream>
 #include "menus.h"
+#include <iostream>
 
 int main()
 {

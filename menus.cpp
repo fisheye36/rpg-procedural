@@ -1,9 +1,8 @@
-#include <iostream>
-
 #include "menus.h"
 #include "input.h"
 #include "game.h"
 #include "constants.h"
+#include <iostream>
 
 bool displayMainMenu()
 {

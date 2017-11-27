@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
 #include "character.h"
+#include <string>
 
 /**
  * Starts a new game.

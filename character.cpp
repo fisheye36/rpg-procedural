@@ -1,13 +1,13 @@
+#include "character.h"
+#include "input.h"
+#include "constants.h"
+
 #include <iostream>
 #include <string>
 #include <vector>
 
 #include <cstdlib>
 #include <ctime>
-
-#include "character.h"
-#include "input.h"
-#include "constants.h"
 
 // holds characters stats
 std::vector<charSkills> g_characters;
