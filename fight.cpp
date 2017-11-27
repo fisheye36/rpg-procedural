@@ -10,16 +10,11 @@
 void fight(charSkills player, charSkills monster)
 {
     bool playerTurn = trueOrFalse();
-    charAttack attack = NULL;
     bool charDead;
     do
     {
         readAnyKey();
-        if (playerTurn)
-            attack = playerAttack;
-        else
-            attack = monsterAttack;
-
+        const charAttack attack = (playerTurn) ? playerAttack : monsterAttack;
         playerTurn = !playerTurn;
         charDead = attack(player, monster);
     } while (!charDead);
