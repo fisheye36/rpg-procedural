@@ -14,7 +14,7 @@ charSkills createCharacter(const bool player)
 {
     charSkills newCharacter = new skill[SKILLS_COUNT + 1];
     newCharacter[ID] = g_characters.size();
-    for (int i = 1; i < SKILLS_COUNT + 1; i++)
+    for (int i = 1; i <= SKILLS_COUNT; i++)
         newCharacter[i] = 0;
     g_characters.push_back(newCharacter);
 
